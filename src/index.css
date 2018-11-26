@@ -12,3 +12,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#message {
+  width: 80%;
+  float: right;
+  padding: 18px;
+}
+
+#name_time {
+  width: 20%;
+  display: inline-block;
+}
+
+#buttons {
+  display: inline-block;
+  width: 100%;
+}
+
+.button {
+  font-size: 0.5em;
+  float: right;
+}

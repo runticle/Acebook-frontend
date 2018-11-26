@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/navigation';
+import Post from './components/post';
 
 class App extends Component {
   render() {
@@ -9,7 +10,7 @@ class App extends Component {
         < Navigation />
         <div className="container">
           <h1>
-            This is all the ting!
+            < Post />
           </h1>
         </div>
       </div>
