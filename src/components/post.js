@@ -1,5 +1,6 @@
 import React from 'react';
 import Buttons from './buttons';
+import Comment from './comment';
 // import '../bootstrap/dist/css/bootstrap.css';
 
 
@@ -10,14 +11,29 @@ class Post extends React.Component {
         { this.renderNameTime() }
         { this.renderMessage() }
         < Buttons />
+        { this.renderComments() }
       </div>
 
     )
   }
 
+  renderComments() {
+    return (
+      // loops through comments and render
+      <div id="comments">
+        <div name="comment">
+          < Comment />
+        </div>
+        <div name="comment">
+          < Comment />
+        </div>
+      </div>
+    )
+  }
+
   renderNameTime() {
     return (
-    <div className="border" id="name_time">
+    <div id="name_time">
       <h4 className="user_name">Imo</h4>
       <p id="time">Time oclock</p>
     </div>
@@ -26,7 +42,7 @@ class Post extends React.Component {
 
   renderMessage() {
     return (
-    <div className="border" id="message">
+    <div id="message">
       <p>Imo message</p>
     </div>
   )

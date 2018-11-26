@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/navigation';
-import Post from './components/post';
+import Feed from './components/feed';
+import Welcome from './components/welcome';
 
 class App extends Component {
   render() {
+    document.body.style = "background-color: #e6e9ef;"
     return (
       <div>
         < Navigation />
+        <h1 align="center">< Welcome /></h1>
         <div className="container">
-          <h1>
-            < Post />
-          </h1>
+            < Feed />
         </div>
       </div>
     );

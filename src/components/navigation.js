@@ -5,7 +5,7 @@ import { Navbar, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap';
 class Navigation extends React.Component {
   render() {
     return (
-      <Navbar className="navbar navbar-expand-lg navbar-light bg-light">
+      <Navbar className="navbar navbar-expand-lg navbar-dark" id='navbar'>
        <Navbar.Header>
          <Navbar.Brand>
            <a href="#home">Acebook</a>
