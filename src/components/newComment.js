@@ -30,7 +30,7 @@ class NewComment extends React.Component {
       <div className="new_message">
         <form className="new_message_form" onSubmit={this.handleSubmit}>
           <textarea id="comment_message" placeholder="What u thinkin" onChange={this.handleChange}/>
-          <button id="submit_message" disabled={!this.validateForm()}>Submit</button>
+          <button id="submit_comment" disabled={!this.validateForm()}>Submit</button>
         </form>
       </div>
     )

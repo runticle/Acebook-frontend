@@ -32,8 +32,8 @@ class Login extends React.Component {
   render () {
 
     return (
-      <div class="form_container">
-        <form class="form" onSubmit={this.handleSubmit}>
+      <div className="form_container">
+        <form className="form" onSubmit={this.handleSubmit}>
           <input type="email" id="log_email" placeholder="Email" onChange={this.handleChange}/>
           <input type="password" id="log_password" placeholder="Password" onChange={this.handleChange}/>
           <button id="submit_login" disabled={!this.validateForm()}>Submit</button>
