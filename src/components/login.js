@@ -6,26 +6,13 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      email: "",
-      password: ""
+      log_email: "",
+      log_password: ""
     };
   }
 
-  render () {
-
-    return (
-      <div id="login">
-        <form onSubmit={this.handleSubmit}>
-          <input type="email" id="email" placeholder="Email" onChange={this.handleChange}/>
-          <input type="password" id="password" placeholder="Password" onChange={this.handleChange}/>
-          <button id="submit_login">Submit</button>
-        </form>
-      </div>
-    )
-  }
-
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    return this.state.log_email.length > 0 && this.state.log_password.length > 0;
   }
 
   handleChange = event => {
@@ -40,6 +27,19 @@ class Login extends React.Component {
     event.preventDefault();
     //fetch call to rails api??
     //check details n shit ?
+  }
+
+  render () {
+
+    return (
+      <div id="login">
+        <form onSubmit={this.handleSubmit}>
+          <input type="email" id="log_email" placeholder="Email" onChange={this.handleChange}/>
+          <input type="password" id="log_password" placeholder="Password" onChange={this.handleChange}/>
+          <button id="submit_login" disabled={!this.validateForm()}>Submit</button>
+        </form>
+      </div>
+    )
   }
 
 }
