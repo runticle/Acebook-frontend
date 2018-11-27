@@ -1,4 +1,5 @@
 import React from 'react';
+import Time from 'react-time-format';
 import Buttons from './buttons';
 import Comment from './comment';
 import Feed from './feed';
@@ -42,7 +43,7 @@ class Post extends React.Component {
     return (
     <div id="name_time">
       <h4 className="user_name">User number { user }!</h4>
-      <p id="time">{ time }</p>
+      <p id="time"> <Time value={ time } format="hh:mm YYYY/MM/DD" /> </p>
     </div>
     )
   }
