@@ -5,6 +5,8 @@ import Feed from './components/feed';
 import Welcome from './components/welcome';
 import Login from './components/login';
 import Register from './components/register';
+import NewPost from './components/newPost';
+import NewComment from './components/newComment';
 
 class App extends Component {
   render() {
@@ -14,6 +16,8 @@ class App extends Component {
         < Navigation />
         < Login />
         < Register />
+        < NewPost />
+        < NewComment />
         <h1 align="center">< Welcome /></h1>
         <div className="container">
             < Feed />

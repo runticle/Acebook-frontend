@@ -28,7 +28,6 @@ class Register extends React.Component {
   }
 
   handleSubmit = event => {
-    console.log(this.state)
     event.preventDefault();
     if (!this.checkPassword()) {
       alert("Passwords don't match u idiot")
@@ -39,8 +38,8 @@ class Register extends React.Component {
 
   render () {
     return (
-      <div class="form_container">
-        <form class="form" onSubmit={this.handleSubmit}>
+      <div className="form_container">
+        <form className="form" onSubmit={this.handleSubmit}>
           <input type="text" id="name" placeholder="Name" onChange={this.handleChange}/>
           <input type="email" id="reg_email" placeholder="Email" onChange={this.handleChange}/>
           <input type="password" id="reg_password" placeholder="Password" onChange={this.handleChange}/>

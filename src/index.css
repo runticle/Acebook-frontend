@@ -32,6 +32,21 @@ input, button {
   align-items: center;
 }
 
+textarea {
+  width: 100%
+}
+
+.new_message {
+  width: 40%;
+  align-items: center;
+  margin: auto;
+}
+
+.new_message button {
+  width: 20%;
+  margin: auto;
+}
+
 #navbar {
   color: white;
   background-color: #3b5998
