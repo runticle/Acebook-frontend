@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import Navigation from './components/navigation';
 import Feed from './components/feed';
