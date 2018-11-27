@@ -18,7 +18,22 @@ div[name=post] {
   background-color: #FFFAFA
 }
 
+.form_container {
+  display: flex;
+}
+
+input, button {
+  display: block;
+  width: 100%;
+}
+
+.form {
+  margin: auto;
+  align-items: center;
+}
+
 #navbar {
+  color: white;
   background-color: #3b5998
 }
 
@@ -34,6 +49,7 @@ div[name=post] {
 }
 
 .navbar a {
+  padding-right: 40px;
   color: white;
   font-weight: bold;
 }
