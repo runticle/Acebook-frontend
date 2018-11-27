@@ -9,8 +9,13 @@ class Feed extends React.Component {
     this.state = {
       isLoaded: false,
       posts: [],
-      show: false
+      show: true
     };
+
+  }
+
+  handleChange(event) {
+    this.setState({show: false});
   }
 
   componentDidMount() {
@@ -42,8 +47,9 @@ class Feed extends React.Component {
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
+        const style = this.state.show ? {display: 'none'} : {};
         return (
-          <ul display={this.state.show}>
+          <ul style={style}>
           { this.state.posts.map((post, i) => (
             < Post
               key={i}
