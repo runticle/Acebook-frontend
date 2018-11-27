@@ -32,9 +32,6 @@ class Post extends React.Component {
         <div name="comment">
           < Comment />
         </div>
-        <div name="comment">
-          < Comment />
-        </div>
       </div>
     )
   }

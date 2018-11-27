@@ -8,7 +8,8 @@ class Feed extends React.Component {
     super(props);
     this.state = {
       isLoaded: false,
-      posts: []
+      posts: [],
+      show: false
     };
   }
 
@@ -42,13 +43,14 @@ class Feed extends React.Component {
         return <div>Loading...</div>;
       } else {
         return (
-          <ul>
+          <ul display={this.state.show}>
           { this.state.posts.map((post, i) => (
             < Post
               key={i}
               message={post.message}
               time={post.created_at}
               user={post.user_id}
+              comments={post.comments}
             />
           ))}
           </ul>
