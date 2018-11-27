@@ -37,8 +37,9 @@ class Register extends React.Component {
   }
 
   render () {
+    const style = this.props.registerHidden ? {display: 'none'} : {};
     return (
-      <div className="form_container">
+      <div className="form_container" id="registration_form" style={style}>
         <form className="form" onSubmit={this.handleSubmit}>
           <input type="text" id="name" placeholder="Name" onChange={this.handleChange}/>
           <input type="email" id="reg_email" placeholder="Email" onChange={this.handleChange}/>

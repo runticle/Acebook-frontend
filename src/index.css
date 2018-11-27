@@ -30,6 +30,7 @@ input, button {
 .form {
   margin: auto;
   align-items: center;
+  text-align: center;
 }
 
 textarea {

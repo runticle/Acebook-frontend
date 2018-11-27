@@ -1,4 +1,5 @@
 import React from 'react';
+import Register from './register';
 
 class Login extends React.Component {
 
@@ -30,15 +31,16 @@ class Login extends React.Component {
   }
 
   render () {
-
+    const style = this.props.loginHidden ? {display: 'none'} : {};
     return (
-      <div className="form_container">
+      <div className="form_container" id="login_form" style={style}>
         <form className="form" onSubmit={this.handleSubmit}>
           <input type="email" id="log_email" placeholder="Email" onChange={this.handleChange}/>
           <input type="password" id="log_password" placeholder="Password" onChange={this.handleChange}/>
           <button id="submit_login" disabled={!this.validateForm()}>Submit</button>
         </form>
       </div>
+
     )
   }
 
