@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Post from './post';
 import NewPost from './newPost';
 import Navigation from './navigation';
+import Welcome from './welcome';
 
 class Feed extends React.Component {
 
@@ -10,8 +11,7 @@ class Feed extends React.Component {
     super(props);
     this.state = {
       isLoaded: false,
-      posts: [],
-      hidden: true
+      posts: []
     };
 
   }
@@ -42,6 +42,10 @@ class Feed extends React.Component {
       )
   }
 
+  handleForms = event => {
+    document.getElementById('login_form').style.display = 'none'
+  }
+
   render() {
     document.body.style = "background-color: #e6e9ef;"
     const { error, isLoaded, posts } = this.state;
@@ -50,14 +54,14 @@ class Feed extends React.Component {
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
-        const style = this.state.hidden ? {display: ''} : {};
         return (
           <div id="posts_body">
           < Navigation />
+          < Welcome />
           <div id="new_post_box">
             <NewPost />
           </div>
-          <ul style={style}>
+          <ul>
           { this.state.posts.map((post, i) => (
             < Post
               id = {post.id}

@@ -20,6 +20,7 @@ div[name=post] {
 
 .form_container {
   display: flex;
+  text-align: center;
 }
 
 input, .submit_comment, .submit_message {
@@ -30,7 +31,6 @@ input, .submit_comment, .submit_message {
 .form {
   margin: auto;
   align-items: center;
-  text-align: center;
 }
 
 textarea {

@@ -14,12 +14,21 @@ class Register extends React.Component {
   }
 
   regReq() {
-    fetch("https://acebook-stars.herokuapp.com/users", {
+    // fetch("https://acebook-stars.herokuapp.com/users", {
+    fetch("http://localhost:3000/users", {
       method: 'post',
-      name: this.state.name,
-      email: this.state.reg_email,
-      password: this.state.reg_password,
-      password_confirmation: this.state.confirm_password
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          name: this.state.name,
+          email: this.state.reg_email,
+          password: this.state.reg_password,
+          password_confirmation: this.state.confirm_password
+        })
+
+
     })
       .then(res => res.json())
       .then(

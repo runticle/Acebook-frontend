@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
-import ReactDOM, { render } from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import App from './App';
-import Navigation from './components/navigation';
+import Home from './components/home';
 import Feed from './components/feed';
 import './bootstrap/dist/css/bootstrap.css'
 
 render (
   <Router>
     <div>
-      <Route exact path='/' component={ Navigation }/>
+      <Route exact path='/' component={ Home }/>
       <Route path='/posts' component={ Feed }/>
     </div>
   </Router>,

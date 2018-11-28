@@ -1,17 +1,15 @@
 import React from 'react';
-import Login from './login';
-import Register from './register';
-import Welcome from './welcome';
 
 
 class Navigation extends React.Component {
 
+
+  // SORT THIS OUT
+
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: true,
-      loginHidden: false,
-      registerHidden: true
+      loggedIn: false
     };
   }
 
@@ -35,13 +33,6 @@ class Navigation extends React.Component {
           });
         }
       )
-  }
-
-  handleRegister = event => {
-    event.preventDefault();
-    document.getElementById('register_link').style.display = 'none'
-    this.setState({loginHidden:true})
-    this.setState({registerHidden:false})
   }
 
   handleLogout = event => {
@@ -75,21 +66,7 @@ class Navigation extends React.Component {
           <h2>Acebook</h2>
           <a href='/posts'>Timeline</a>
           { this.toggleButtons()}
-        </nav>
-        < Welcome />
-        <div id="Authentication">
-        <div id="login_box" className="form">
-          <Login
-            loginHidden={this.state.loginHidden}
-          />
-          <p id="register_link" className="form"> New user? <a href='/' onClick={this.handleRegister.bind(this)}>Register</a></p>
-        </div>
-        <div id="register_box" className="form">
-          <Register
-            registerHidden={this.state.registerHidden}
-          />
-        </div>
-        </div>
+      </nav>
       </div>
     )
   }
