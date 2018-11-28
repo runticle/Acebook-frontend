@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './login';
 import Register from './register';
+import Welcome from './welcome';
 
 
 class Navigation extends React.Component {
@@ -8,7 +9,7 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      logged_in: false,
+      loggedIn: false,
       loginHidden: false,
       registerHidden: true
     };
@@ -21,14 +22,33 @@ class Navigation extends React.Component {
     this.setState({registerHidden:false})
   }
 
+  toggleButtons = event => {
+    if (this.state.loggedIn) {
+      return (
+        <>
+         <a href='/'>Logout</a>
+        </>
+      )
+    } else {
+      return (
+        <>
+        <a href='/'>Login</a>
+        </>
+      )
+    }
+  }
+
   render() {
+    document.body.style = "background-color: #e6e9ef;"
+
     return (
       <div>
         <nav className="navbar navbar-dark" id="navbar">
           <h2>Acebook</h2>
-          <a href='/'>Timeline</a>
-          <a href='/'>Logout</a>
+          <a href='/posts'>Timeline</a>
+          { this.toggleButtons()}
         </nav>
+        < Welcome />
         <div id="Authentication">
         <div id="login_box" className="form">
           <Login

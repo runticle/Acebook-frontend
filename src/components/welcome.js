@@ -4,7 +4,7 @@ class Welcome extends React.Component {
   render() {
     return (
       <div id="welcome-message">
-        Welcome to Acebook, Imo!
+        <h1 align="center">Welcome to Acebook, Imo!</h1>
       </div>
     )
   }

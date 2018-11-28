@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Post from './post';
+import Navigation from './navigation';
 
 class Feed extends React.Component {
 
@@ -41,14 +42,17 @@ class Feed extends React.Component {
   }
 
   render() {
+    document.body.style = "background-color: #e6e9ef;"
     const { error, isLoaded, posts } = this.state;
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
-        const style = this.state.hidden ? {display: 'none'} : {};
+        const style = this.state.hidden ? {display: ''} : {};
         return (
+          <div id="posts_body">
+          < Navigation />
           <ul style={style}>
           { this.state.posts.map((post, i) => (
             < Post
@@ -60,6 +64,7 @@ class Feed extends React.Component {
             />
           ))}
           </ul>
+          </div>
         )
       }
   }
