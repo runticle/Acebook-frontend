@@ -15,7 +15,7 @@ export class Register extends React.Component {
 
   regReq() {
     // fetch("https://acebook-stars.herokuapp.com/users", {
-    fetch("http://localhost:3000/users", {
+    fetch("https://acebook-stars.herokuapp.com/users", {
       method: 'post',
       headers: {
       'Accept': 'application/json',
