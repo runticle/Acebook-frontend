@@ -17,35 +17,21 @@ class Home extends React.Component {
     };
   }
 
-  logoutReq() {
-    fetch("https://acebook-stars.herokuapp.com/users/sign_out", {
-      method: 'delete',
-      // user_id: // USER ID FROM TOKEN!!!!! WOOO!
-    })
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result)
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          console.log(error)
-          this.setState({
-            error
-          });
-        }
-      )
+  handleRegister = event => {
+    event.preventDefault();
+    document.getElementById('register_link').style.display = 'none'
+    document.getElementById('signup_link').style.display = 'block'
+    this.setState({loginHidden:true})
+    this.setState({registerHidden:false})
   }
 
-
-    handleRegister = event => {
-      event.preventDefault();
-      document.getElementById('register_link').style.display = 'none'
-      this.setState({loginHidden:true})
-      this.setState({registerHidden:false})
-    }
+  handleLogIn = event => {
+    event.preventDefault();
+    document.getElementById('signup_link').style.display = 'none'
+    document.getElementById('register_link').style.display = 'block'
+    this.setState({loginHidden:false})
+    this.setState({registerHidden:true})
+  }
 
   render() {
     document.body.style = "background-color: #e6e9ef;"
@@ -65,6 +51,7 @@ class Home extends React.Component {
           <Register
             registerHidden={this.state.registerHidden}
           />
+          <p id="signup_link" className="form"> Already signed up? <a href='/' onClick={this.handleLogIn}>Log In</a></p>
         </div>
         </div>
       </div>
