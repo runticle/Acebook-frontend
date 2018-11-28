@@ -35,12 +35,11 @@ class Home extends React.Component {
 
   render() {
     document.body.style = "background-color: #e6e9ef;"
-
     return (
       <div>
         <Navigation />
         < Welcome />
-        <div id="Authentication">
+        <div id="authentication">
         <div id="login_box" className="form">
           <Login
             loginHidden={this.state.loginHidden}

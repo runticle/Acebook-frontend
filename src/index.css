@@ -20,6 +20,13 @@ div[name=post] {
 
 .form_container {
   display: flex;
+}
+
+#signup_link {
+  display:none;
+}
+
+#authentication {
   text-align: center;
 }
 
