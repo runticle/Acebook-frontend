@@ -46,11 +46,6 @@ class Buttons extends React.Component {
     console.log(this.props.post_id)
   }
 
-  handleMore = event => {
-    event.preventDefault();
-    console.log(this.props.post_id)
-  }
-
   render() {
 
     return (
@@ -59,7 +54,6 @@ class Buttons extends React.Component {
                 <button id="edit" onClick={ this.handleEdit } className="button">✏️</button>
                 <button id="new_comment_button" onClick={ this.handleComment } className="button">💬</button>
                 <button id="toggle_like" onClick={ this.handleLike } className="button">⭐️</button>
-                <button id="see_more" onClick={ this.handleMore } className="button">➕</button>
               </div>
           )
     }
