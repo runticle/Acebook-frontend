@@ -9,10 +9,32 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
       loginHidden: false,
       registerHidden: true
     };
+  }
+
+  logoutReq() {
+    fetch("https://acebook-stars.herokuapp.com/users/sign_out", {
+      method: 'delete',
+      // user_id: // USER ID FROM TOKEN!!!!! WOOO!
+    })
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          console.log(error)
+          this.setState({
+            error
+          });
+        }
+      )
   }
 
   handleRegister = event => {
@@ -22,11 +44,17 @@ class Navigation extends React.Component {
     this.setState({registerHidden:false})
   }
 
+  handleLogout = event => {
+    event.preventDefault();
+    this.state.loggedIn = false;
+    this.logoutReq();
+  }
+
   toggleButtons = event => {
     if (this.state.loggedIn) {
       return (
         <>
-         <a href='/'>Logout</a>
+         <a onClick={this.handleLogout} href='/'>Logout</a>
         </>
       )
     } else {
