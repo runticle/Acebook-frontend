@@ -11,6 +11,7 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
     };
   }
 
@@ -19,7 +20,9 @@ class Post extends React.Component {
       <div className="border" name="post" id="post_id">
         { this.renderNameTime(this.props.time, this.props.user) }
         { this.renderMessage(this.props.message) }
-        < Buttons />
+        < Buttons
+          post_id = { this.props.id }
+        />
         { this.renderComments() }
       </div>
     )
@@ -30,7 +33,9 @@ class Post extends React.Component {
       // loops through comments and render
       <div id="comments">
         <div name="comment">
-          < Comment />
+          < Comment
+            post_id = { this.props.id }
+          />
         </div>
       </div>
     )

@@ -13,12 +13,36 @@ class Register extends React.Component {
     };
   }
 
+  regReq() {
+    fetch("https://acebook-stars.herokuapp.com/users", {
+      method: 'post',
+      name: this.state.name,
+      email: this.state.reg_email,
+      password: this.state.reg_password,
+      password_confirmation: this.state.confirm_password
+    })
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
+  }
+
   validateForm() {
     return this.state.reg_email.length > 0 && this.state.reg_password.length > 0 && this.state.name.length > 0 && this.state.confirm_password.length > 0;
   }
 
   checkPassword() {
-    return this.state.password === this.state.confirm_password;
+    return this.state.reg_password === this.state.confirm_password;
   }
 
   handleChange = event => {
@@ -32,8 +56,7 @@ class Register extends React.Component {
     if (!this.checkPassword()) {
       alert("Passwords don't match u idiot")
     }
-    //fetch call to rails api??
-    //check details n shit ?
+    this.regReq();
   }
 
   render () {

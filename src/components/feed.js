@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Post from './post';
+import NewPost from './newPost';
 import Navigation from './navigation';
 
 class Feed extends React.Component {
@@ -53,9 +54,13 @@ class Feed extends React.Component {
         return (
           <div id="posts_body">
           < Navigation />
+          <div id="new_post_box">
+            <NewPost />
+          </div>
           <ul style={style}>
           { this.state.posts.map((post, i) => (
             < Post
+              id = {post.id}
               key={i}
               message={post.message}
               time={post.created_at}

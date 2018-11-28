@@ -22,7 +22,7 @@ div[name=post] {
   display: flex;
 }
 
-input, button {
+input, .submit_comment, .submit_message {
   display: block;
   width: 100%;
 }

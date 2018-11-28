@@ -10,6 +10,28 @@ class NewPost extends React.Component {
     };
   }
 
+  newPostReq() {
+    fetch("https://acebook-stars.herokuapp.com/posts", {
+      method: 'post',
+      message: this.state.post_message,
+      // user_id: // USER ID FROM TOKEN!!!!! WOOO!
+    })
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
+  }
+
   validateForm() {
     return this.state.post_message.length > 0
   }
@@ -22,7 +44,7 @@ class NewPost extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    //send message to backend
+    this.newPostReq();
   }
 
   render() {

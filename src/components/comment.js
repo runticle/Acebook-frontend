@@ -1,14 +1,20 @@
 import React from 'react';
 import Buttons from './buttons';
+import NewComment from './newComment'
 
 class Comment extends React.Component {
 
   render() {
     return (
       <div name="comment" id="post_id">
+        < NewComment
+          post_id ={ this.props.post_id }
+        />
         { this.renderNameTime() }
         { this.renderMessage() }
-        < Buttons />
+        < Buttons
+          post_id={ this.props.post_id }
+        />
       </div>
       )
     }

@@ -12,13 +12,33 @@ class Login extends React.Component {
     };
   }
 
+  logReq() {
+    fetch("https://acebook-stars.herokuapp.com/users/sign_in", {
+      method: 'post',
+      email: this.state.log_email,
+      password: this.state.log_password
+    })
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
+  }
+
   validateForm() {
     return this.state.log_email.length > 0 && this.state.log_password.length > 0;
   }
 
   handleChange = event => {
-    console.log(event.target.id)
-    console.log(event.target.value)
      this.setState({
        [event.target.id]: event.target.value
      });
@@ -26,8 +46,8 @@ class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    //fetch call to rails api??
-    //check details n shit ?
+    // the api url may need changing!!!!
+    this.logReq();
   }
 
   render () {
