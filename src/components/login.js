@@ -13,19 +13,28 @@ class Login extends React.Component {
   }
 
   logReq() {
-    fetch("https://acebook-stars.herokuapp.com/users/sign_in", {
+    fetch("http://localhost:3000/users/sign_in", {
       method: 'post',
-      email: this.state.log_email,
-      password: this.state.log_password
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+
+      },
+      body: JSON.stringify({
+        user: {
+          email: this.state.log_email,
+          password: this.state.log_password
+        }
+      })
     })
-      .then(res => res.json())
+      .then(res => {
+        console.log(res.data)
+        return res.json()
+      })
       .then(
         (result) => {
           console.log(result)
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           this.setState({
             error
