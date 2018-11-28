@@ -13,7 +13,6 @@ class Feed extends React.Component {
       isLoaded: false,
       posts: []
     };
-
   }
 
   handleChange(event) {
@@ -77,7 +76,6 @@ class Feed extends React.Component {
         )
       }
   }
-
 }
 
 export default Feed;
