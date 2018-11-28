@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Register correctly 1`] = `
+<div
+  className="form_container"
+  id="registration_form"
+  style={Object {}}
+>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <input
+      id="name"
+      onChange={[Function]}
+      placeholder="Name"
+      type="text"
+    />
+    <input
+      id="reg_email"
+      onChange={[Function]}
+      placeholder="Email"
+      type="email"
+    />
+    <input
+      id="reg_password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+    />
+    <input
+      id="confirm_password"
+      onChange={[Function]}
+      placeholder="Confirm Password"
+      type="password"
+    />
+    <button
+      disabled={true}
+      id="submit_register"
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;

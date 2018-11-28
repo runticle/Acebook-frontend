@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class EditButton extends React.Component {
+export class EditButton extends React.Component {
   //
   // editPostReq() {
   //   fetch("https://acebook-stars.herokuapp.com/posts", {

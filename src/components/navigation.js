@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class Navigation extends React.Component {
+export class Navigation extends React.Component {
 
 
   // SORT THIS OUT

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Welcome correctly 1`] = `
+<div
+  id="welcome-message"
+>
+  <h1
+    align="center"
+  >
+    Welcome to Acebook, Imo!
+  </h1>
+</div>
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class LikeButton extends React.Component {
+export class LikeButton extends React.Component {
   //
   // likePostReq() {
   //   fetch("https://acebook-stars.herokuapp.com/posts", {

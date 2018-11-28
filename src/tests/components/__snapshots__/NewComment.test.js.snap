@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NewComment correctly 1`] = `
+<div
+  className="new_message"
+>
+  <form
+    className="new_message_form"
+    onSubmit={[Function]}
+  >
+    <textarea
+      className="comment_message"
+      onChange={[Function]}
+      placeholder="What u thinkin"
+    />
+    <button
+      className="submit_comment"
+      disabled={true}
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

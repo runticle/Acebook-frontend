@@ -1,7 +1,7 @@
 import React from 'react';
 import Register from './register';
 
-class Login extends React.Component {
+export class Login extends React.Component {
 
   constructor(props) {
     super(props);

@@ -4,7 +4,7 @@ import NewCommentButton from './newCommentButton';
 import LikeButton from './likeButton';
 import DeleteButton from './deleteButton';
 
-class Buttons extends React.Component {
+export class Buttons extends React.Component {
 
   render() {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NewCommentButton extends React.Component {
+export class NewCommentButton extends React.Component {
 
   newCommentPostReq() {
     fetch("https://acebook-stars.herokuapp.com/posts/post_id/comments", {
