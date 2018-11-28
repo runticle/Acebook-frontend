@@ -4,7 +4,10 @@ import React from 'react';
 class DeleteButton extends React.Component {
 
   // deletePostReq() {
-  //   fetch("https://acebook-stars.herokuapp.com/posts", {
+  //   // ROUTING IS EXPERIMENTAL ONLY, NOT TESTED, DO NOT TRUST
+  //   var route = "posts/$"
+  //   var id = this.props.post_id
+  //   fetch(`https://acebook-stars.herokuapp.com/${route}/${id}`, {
   //     method: 'delete',
   //     id: this.props.post_id
   //   })
