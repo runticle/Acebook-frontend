@@ -12,7 +12,6 @@ export class NewPost extends React.Component {
   }
 
   newPostReq() {
-
     fetch("http://localhost:3000/posts", {
       method: 'post',
       headers: getAuthenticationHeaders(),
