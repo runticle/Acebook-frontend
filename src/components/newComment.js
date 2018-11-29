@@ -11,7 +11,7 @@ export class NewComment extends React.Component {
   }
 
   newCommentReq() {
-    fetch("https://acebook-stars.herokuapp.com/posts", {
+    fetch("http://localhost:3000/posts", {
       method: 'post',
       message: this.state.comment_message,
       post_id: this.props.post_id

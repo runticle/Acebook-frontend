@@ -11,7 +11,7 @@ export class NewPost extends React.Component {
   }
 
   newPostReq() {
-    fetch("https://acebook-stars.herokuapp.com/posts", {
+    fetch("http://localhost:3000/posts", {
       method: 'post',
       message: this.state.post_message,
       // user_id: // USER ID FROM TOKEN!!!!! WOOO!

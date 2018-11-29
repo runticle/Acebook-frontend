@@ -13,9 +13,34 @@ export class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentsHidden: true
+      isLoaded: false,
+      commentsHidden: true,
+      comments: []
     };
   }
+
+  fetchComments() {
+    fetch(`https://acebook-stars.herokuapp.com/posts/${this.props.id}/comments`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            comments: result
+          });console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
 
   render() {
     return (
@@ -25,7 +50,7 @@ export class Post extends React.Component {
         < AllPostButtons
           post_id = { this.props.id }
         />
-        <a id="see_comments" href='/posts' onClick={this.handleComments}>{this.props.numberComments} Comments</a>
+        <a id="see_comments" href='/posts' onClick={this.handleComments}> {this.props.numberComments} Comments</a>
         <div id="render_comments">{ this.renderComments() }</div>
       </div>
     )
@@ -38,9 +63,11 @@ export class Post extends React.Component {
 
   handleComments = event => {
     event.preventDefault();
-    this.state.commentsHidden ? this.setState({ commentsHidden: false }) : this.setState({ commentsHidden: true })
+    if (this.state.commentsHidden) {
+      // this.fetchComments()
+      this.setState({ commentsHidden: false }) }
+    else { this.setState({ commentsHidden: true }) }
   }
-
 
   renderComments() {
     const style = this.state.commentsHidden ? {display: 'none'} : {};
@@ -48,9 +75,16 @@ export class Post extends React.Component {
       // loops through comments and render
       <div id="comments" style={ style }>
         <div name="comment">
+        { this.state.comments.map((comment, i) => (
           < Comment
-            post_id = { this.props.id }
+            post_id={this.props.id}
+            id={comment.id}
+            key={i}
+            comment={comment.comment}
+            time={comment.created_at}
+            user={comment.user_id}
           />
+          ))}
         </div>
         <div id="render_new_comment">{ this.renderNewComment() }</div>
       </div>
