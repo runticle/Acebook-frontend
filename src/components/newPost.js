@@ -1,5 +1,6 @@
 import React from 'react';
-import { getAuthenticationHeaders } from '../actions/auth';
+import { connect } from 'react-redux';
+import { startAddPost } from '../actions/posts'
 
 export class NewPost extends React.Component {
 
@@ -11,29 +12,29 @@ export class NewPost extends React.Component {
     };
   }
 
-  newPostReq() {
-    fetch("http://localhost:3000/posts", {
-      method: 'post',
-      headers: getAuthenticationHeaders(),
-      body: JSON.stringify({
-        message: this.state.post_message
-      })
-    })
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result)
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            error
-          });
-        }
-      )
-  }
+  // newPostReq() {
+  //   fetch("http://localhost:3000/posts", {
+  //     method: 'post',
+  //     headers: getAuthenticationHeaders(),
+  //     body: JSON.stringify({
+  //       message: this.state.post_message
+  //     })
+  //   })
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //         console.log(result)
+  //       },
+  //       // Note: it's important to handle errors here
+  //       // instead of a catch() block so that we don't swallow
+  //       // exceptions from actual bugs in components.
+  //       (error) => {
+  //         this.setState({
+  //           error
+  //         });
+  //       }
+  //     )
+  // }
 
   validateForm() {
     return this.state.post_message.length > 0
@@ -47,7 +48,7 @@ export class NewPost extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.newPostReq();
+    this.props.startAddPost(event.target.post_message.value)
   }
 
   render() {
@@ -62,4 +63,8 @@ export class NewPost extends React.Component {
   }
 }
 
-export default NewPost;
+const mapDispatchToProps = (dispatch) => ({
+  startAddPost: (price) => dispatch(startAddPost(price))
+})
+
+export default connect(undefined, mapDispatchToProps)(NewPost);

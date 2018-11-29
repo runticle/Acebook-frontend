@@ -8,7 +8,7 @@ export const addPost = (post) => ({
 
 export const startAddPost = (post = {}) => {
   return (dispatch) => {
-    return fetch(`${URL}/posts`, {
+    return fetch(`${config.URL}/posts`, {
       method: 'post',
       headers: getAuthenticationHeaders(),
       body: JSON.stringify({post})
