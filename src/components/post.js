@@ -5,6 +5,9 @@ import Comment from './comment';
 import Feed from './feed';
 import ReactDOM from 'react-dom'
 import NewComment from './newComment'
+import { connect } from 'react-redux';
+import configureStore from '../store/configureStore';
+import {startSetComments} from '../actions/comments'
 // import '../bootstrap/dist/css/bootstrap.css';
 
 
@@ -38,6 +41,7 @@ export class Post extends React.Component {
 
   handleComments = event => {
     event.preventDefault();
+    this.props.startSetComments(this.props.id)
     this.state.commentsHidden ? this.setState({ commentsHidden: false }) : this.setState({ commentsHidden: true })
   }
 
@@ -45,13 +49,12 @@ export class Post extends React.Component {
   renderComments() {
     const style = this.state.commentsHidden ? {display: 'none'} : {};
     return (
-      // loops through comments and render
-      <div id="comments" style={ style }>
-        <div name="comment">
-          < Comment
-            post_id = { this.props.id }
-          />
-        </div>
+      <div id="comments" style= { style }>
+        { this.props.comments.map((comment, i) => (
+        <li>
+          < Comment />
+        </li>
+      ))}
         <div id="render_new_comment">{ this.renderNewComment() }</div>
       </div>
     )
@@ -84,4 +87,14 @@ export class Post extends React.Component {
   }
 }
 
-export default Post;
+const mapStateToProps = (state) => {
+ return {
+   comments: state.comments
+ }
+};
+
+const mapDispatchToProps = (dispatch) => ({
+ startSetComments: (id) => dispatch(startSetComments(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
