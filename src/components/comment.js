@@ -2,7 +2,7 @@ import React from 'react';
 import AllCommentButtons from './comment_button/allCommentButtons';
 import NewComment from './newComment'
 
-class Comment extends React.Component {
+export class Comment extends React.Component {
 
   render() {
     return (

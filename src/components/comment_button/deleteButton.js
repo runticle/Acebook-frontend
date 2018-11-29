@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class DeleteButton extends React.Component {
+export class DeleteButton extends React.Component {
 
   // deletePostReq() {
   //   // ROUTING IS EXPERIMENTAL ONLY, NOT TESTED, DO NOT TRUST

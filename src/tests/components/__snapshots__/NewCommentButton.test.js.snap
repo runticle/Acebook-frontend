@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NewCommentButton correctly 1`] = `
+<div
+  id="newCommentButton"
+>
+  <button
+    className="button"
+    id="new_comment_button"
+    onClick={[Function]}
+  >
+    💬
+  </button>
+</div>
+`;

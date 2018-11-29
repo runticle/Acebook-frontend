@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render DeleteButton correctly 1`] = `
+<div
+  id="deleteButton"
+>
+  <button
+    className="button"
+    id="delete"
+    onClick={[Function]}
+  >
+    ❌
+  </button>
+</div>
+`;

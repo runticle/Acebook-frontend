@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NewPost extends React.Component {
+export class NewPost extends React.Component {
 
   constructor(props) {
     super(props);

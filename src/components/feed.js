@@ -5,7 +5,7 @@ import NewPost from './newPost';
 import Navigation from './navigation';
 import Welcome from './welcome';
 
-class Feed extends React.Component {
+export class Feed extends React.Component {
 
   constructor(props) {
     super(props);
