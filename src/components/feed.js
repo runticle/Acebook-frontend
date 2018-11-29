@@ -13,8 +13,6 @@ export class Feed extends React.Component {
  }
 
  render() {
-   const posts =
-     ))
    document.body.style = "background-color: #e6e9ef;"
        return (
          <div id="posts_body">
@@ -34,7 +32,8 @@ export class Feed extends React.Component {
                      user={post.user_id}
                      // numberComments={post.numberComments}
                    />
-                 </li> }
+                 </li>
+           ))}
          </ul>
          </div>
        )
