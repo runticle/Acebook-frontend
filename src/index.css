@@ -22,6 +22,8 @@ div[name=post] {
   display: flex;
 }
 
+
+
 #signup_link {
   display:none;
 }
@@ -51,7 +53,12 @@ textarea {
 }
 
 .new_message button {
-  width: 20%;
+  width: 50%;
+  margin: auto;
+}
+
+.new_comment button {
+  width: 50%;
   margin: auto;
 }
 

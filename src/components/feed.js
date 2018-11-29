@@ -68,7 +68,7 @@ class Feed extends React.Component {
               message={post.message}
               time={post.created_at}
               user={post.user_id}
-              comments={post.comments}
+              numberComments={post.numberComments}
             />
           ))}
           </ul>
