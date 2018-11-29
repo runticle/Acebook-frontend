@@ -1,6 +1,7 @@
 import React from 'react';
 import Register from './register';
 import { setAuthenticationHeaders } from '../actions/auth'
+import {withRouter} from 'react-router-dom'
 
 export class Login extends React.Component {
 
@@ -55,6 +56,7 @@ export class Login extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.logReq();
+    this.props.history.push('/posts')
   }
 
   render () {
@@ -73,4 +75,4 @@ export class Login extends React.Component {
 
 }
 
-export default Login;
+export default withRouter(Login);

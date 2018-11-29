@@ -1,5 +1,7 @@
 import React from 'react';
 import { setAuthenticationHeaders } from '../actions/auth';
+import {withRouter} from 'react-router-dom'
+
 
 export class Register extends React.Component {
 
@@ -15,7 +17,7 @@ export class Register extends React.Component {
   }
 
   regReq() {
-    console.log('here')
+
     // fetch("https://acebook-stars.herokuapp.com/users", {
     fetch("http://localhost:3000/users", {
       method: 'post',
@@ -67,13 +69,14 @@ export class Register extends React.Component {
       alert("Passwords don't match u idiot")
     }
     this.regReq();
+    this.props.history.push('/posts')
   }
 
   render () {
     const style = this.props.registerHidden ? {display: 'none'} : {};
     return (
       <div className="form_container" id="registration_form" style={style}>
-        <form className="form" onSubmit={this.handleSubmit}>
+        <form action="/posts" className="form" onSubmit={this.handleSubmit}>
           <input type="text" id="name" placeholder="Name" onChange={this.handleChange}/>
           <input type="email" id="reg_email" placeholder="Email" onChange={this.handleChange}/>
           <input type="password" id="reg_password" placeholder="Password" onChange={this.handleChange}/>
@@ -86,4 +89,4 @@ export class Register extends React.Component {
 }
 
 
-export default Register;
+export default withRouter(Register);
