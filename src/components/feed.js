@@ -13,17 +13,16 @@ export class Feed extends React.Component {
       isLoaded: false,
       posts: []
     };
+
+    this.fetchPosts = this.fetchPosts.bind(this)
   }
 
-  handleChange(event) {
-    this.setState({hidden: false});
-  }
-
-  componentDidMount() {
+  fetchPosts() {
     fetch("http://localhost:3000/posts")
       .then(res => res.json())
       .then(
         (result) => {
+          console.log(result)
           this.setState({
             isLoaded: true,
             posts: result
@@ -38,11 +37,11 @@ export class Feed extends React.Component {
             error
           });
         }
-      )
+      );
   }
 
-  handleForms = event => {
-    document.getElementById('login_form').style.display = 'none'
+  componentDidMount() {
+    this.fetchPosts()
   }
 
   render() {
@@ -58,7 +57,8 @@ export class Feed extends React.Component {
           < Navigation />
           < Welcome />
           <div id="new_post_box">
-            <NewPost />
+            <NewPost
+            fetchPosts = {this.fetchPosts}/>
           </div>
           <ul>
           { this.state.posts.map((post, i) => (

@@ -24,6 +24,7 @@ export class NewPost extends React.Component {
       .then(
         (result) => {
           console.log(result)
+          this.props.fetchPosts()
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
