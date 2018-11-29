@@ -23,6 +23,7 @@ export class NewPost extends React.Component {
       .then(
         (result) => {
           console.log(result)
+          this.props.fetchPosts()
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -52,12 +53,10 @@ export class NewPost extends React.Component {
 
   render() {
     return (
-      <div className="new_message">
         <form className="new_message_form" onSubmit={this.handleSubmit}>
           <textarea id="post_message" placeholder="What's on your mind...?" onChange={this.handleChange}/>
           <button id="submit_message" disabled={!this.validateForm()}>Submit</button>
         </form>
-      </div>
     )
   }
 }
