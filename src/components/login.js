@@ -1,5 +1,6 @@
 import React from 'react';
 import Register from './register';
+import { setAuthenticationHeaders } from '../actions/auth'
 
 export class Login extends React.Component {
 
@@ -18,17 +19,14 @@ export class Login extends React.Component {
       headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-
       },
       body: JSON.stringify({
-        user: {
           email: this.state.log_email,
           password: this.state.log_password
-        }
       })
     })
       .then(res => {
-        console.log(res.data)
+        setAuthenticationHeaders(res.headers)
         return res.json()
       })
       .then(
@@ -36,6 +34,7 @@ export class Login extends React.Component {
           console.log(result)
         },
         (error) => {
+          console.log(error)
           this.setState({
             error
           });
