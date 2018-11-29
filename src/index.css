@@ -108,6 +108,10 @@ textarea {
   margin: auto;
 }
 
+li {
+  list-style-type: none;
+}
+
 textarea {
   border-radius: 10px;
   padding-left: 0.4em;
@@ -165,4 +169,5 @@ div[name="comment"] {
 .button {
   font-size: 0.7em;
   float: right;
+  background-color: inherit;
 }
