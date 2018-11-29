@@ -1,6 +1,6 @@
 import React from 'react';
 import Time from 'react-time-format';
-import Buttons from './buttons';
+import AllPostButtons from './post_buttons/allPostButtons';
 import Comment from './comment';
 import Feed from './feed';
 // import '../bootstrap/dist/css/bootstrap.css';
@@ -20,7 +20,7 @@ class Post extends React.Component {
       <div className="border" name="post" id="post_id">
         { this.renderNameTime(this.props.time, this.props.user) }
         { this.renderMessage(this.props.message) }
-        < Buttons
+        < AllPostButtons
           post_id = { this.props.id }
         />
         { this.renderComments() }
@@ -44,7 +44,7 @@ class Post extends React.Component {
   renderNameTime(time, user) {
     return (
     <div id="name_time">
-      <h4 className="user_name">User number { user }!</h4>
+      <h4 className="user_name">User #{ user }!</h4>
       <p id="time"> <Time value={ time } format="hh:mm YYYY/MM/DD" /> </p>
     </div>
     )

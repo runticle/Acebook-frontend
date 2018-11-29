@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttons from './buttons';
+import AllCommentButtons from './comment_button/allCommentButtons';
 import NewComment from './newComment'
 
 class Comment extends React.Component {
@@ -12,7 +12,7 @@ class Comment extends React.Component {
         />
         { this.renderNameTime() }
         { this.renderMessage() }
-        < Buttons
+        < AllCommentButtons
           post_id={ this.props.post_id }
         />
       </div>
