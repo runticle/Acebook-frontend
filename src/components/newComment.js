@@ -51,7 +51,7 @@ export class NewComment extends React.Component {
 
   render() {
     return (
-      <div className="new_message">
+      <div className="new_comment">
         <form className="new_message_form" onSubmit={this.handleSubmit}>
           <textarea className="comment_message" placeholder="What u thinkin" onChange={this.handleChange}/>
           <button className="submit_comment" disabled={!this.validateForm()}>Submit</button>
