@@ -44,8 +44,6 @@ div[name=post] {
   text-decoration: none
 }
 
-
-
 #authentication {
   text-align: center;
 }
@@ -60,27 +58,49 @@ input, .submit_comment, .submit_message {
   align-items: center;
 }
 
+.new_message_form {
+  width: 40%;
+  margin:auto;
+}
+
 textarea {
   width: 100%
 }
 
 #new_post_box {
-  width: 1000px;
+  width: 100%;
 }
 
 .new_message {
+  display: inline-block;
   width: 50%;
   margin: auto;
-}
-
-.new_message textarea {
-  background-color: white;
 }
 
 .new_message button {
-  width: 50%;
+  border-radius: 10px;
+  border: solid;
+  border-width: 1px;
+  color: grey;
+  border-color: lightgrey
+}
+
+.new_message_form button:disabled {
+  display: none;
+}
+
+.new_message_form textarea {
+  background-color: white;
   margin: auto;
-  margin-left: 25%
+
+}
+
+.new_message_form button {
+  width: 50%;
+  border-radius: 8px;
+  margin: auto;
+  background-color: #e1e5ed;
+  margin-left: 25%;
 }
 
 .new_comment button {

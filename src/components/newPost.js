@@ -54,12 +54,10 @@ export class NewPost extends React.Component {
 
   render() {
     return (
-      <div className="new_message">
         <form className="new_message_form" onSubmit={this.handleSubmit}>
           <textarea id="post_message" placeholder="What's on your mind...?" onChange={this.handleChange}/>
           <button id="submit_message" disabled={!this.validateForm()}>Submit</button>
         </form>
-      </div>
     )
   }
 }

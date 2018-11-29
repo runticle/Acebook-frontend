@@ -54,7 +54,6 @@ export class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // the api url may need changing!!!!
     this.logReq();
   }
 
