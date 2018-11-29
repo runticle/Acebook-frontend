@@ -34,7 +34,7 @@ export class EditPostForm extends React.Component {
   }
 
   validateForm() {
-    return this.state.comment_message.length > 0
+    return this.state.updated_message.length > 0
   }
 
   handleChange = event => {
@@ -48,11 +48,11 @@ export class EditPostForm extends React.Component {
     this.editPostReq();
   }
 
-  renderEditPostForm() {
+  render() {
     return (
       <div className="new_comment">
         <form className="edit_message_form" onSubmit={this.handleSubmit}>
-          <textarea className="updated_message" value={this.props.message} onChange={this.handleChange}/>
+          <textarea className="updated_message" onChange={this.handleChange} type = "text" value= {this.props.message}>  </textarea>
           <button className="submit_message" disabled={!this.validateForm()}>Submit</button>
         </form>
       </div>

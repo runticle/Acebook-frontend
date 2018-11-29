@@ -50,7 +50,7 @@ export class Post extends React.Component {
         { this.renderMessage(this.props.message) }
         < EditPostForm
           post_id = { this.props.id }
-          message = { this.props.message }/>
+          message = { this.props.message } />
         < AllPostButtons
           post_id = { this.props.id }
         />
