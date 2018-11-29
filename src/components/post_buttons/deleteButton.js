@@ -1,13 +1,16 @@
 import React from 'react';
+import { getAuthenticationHeaders } from '../../actions/auth'
 
 
 class DeleteButton extends React.Component {
 
   deletePostReq() {
+
     // METHOD TO BE TESTED
     fetch(`http://localhost:3000/posts/${this.props.post_id}`, {
       method: 'delete',
       id: this.props.post_id
+
     })
       .then(res => res.json())
       .then(
