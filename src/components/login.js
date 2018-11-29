@@ -17,8 +17,8 @@ export class Login extends React.Component {
     fetch("http://localhost:3000/users/sign_in", {
       method: 'post',
       headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
           email: this.state.log_email,
