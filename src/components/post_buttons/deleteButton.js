@@ -5,10 +5,12 @@ import { getAuthenticationHeaders } from '../../actions/auth'
 class DeleteButton extends React.Component {
 
   deletePostReq() {
-    var id = this.props.post_id
-    fetch(`http://localhost:3000/posts/${id}`, {
+
+    // METHOD TO BE TESTED
+    fetch(`http://localhost:3000/posts/${this.props.post_id}`, {
       method: 'delete',
-      headers: getAuthenticationHeaders()
+      id: this.props.post_id
+
     })
       .then(res => res.json())
       .then(

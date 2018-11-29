@@ -5,6 +5,7 @@ import Comment from './comment';
 import Feed from './feed';
 import ReactDOM from 'react-dom'
 import NewComment from './newComment'
+import EditPostForm from './editPostForm'
 // import '../bootstrap/dist/css/bootstrap.css';
 
 
@@ -13,15 +14,43 @@ export class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentsHidden: true
+      commentsHidden: true,
+      editFormHidden: true,
+      isLoaded: false,
+      comments: []
     };
   }
+
+    fetchComments() {
+      fetch(`http://localhost:3000/posts/${this.props.id}/comments`)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              comments: result
+            });console.log(result)
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
 
   render() {
     return (
       <div className="border" name="post" id="post_id">
         { this.renderNameTime(this.props.time, this.props.user) }
         { this.renderMessage(this.props.message) }
+        < EditPostForm
+          post_id = { this.props.id }
+          message = { this.props.message }/>
         < AllPostButtons
           post_id = { this.props.id }
         />
@@ -38,9 +67,12 @@ export class Post extends React.Component {
 
   handleComments = event => {
     event.preventDefault();
-    this.state.commentsHidden ? this.setState({ commentsHidden: false }) : this.setState({ commentsHidden: true })
+    if (this.state.commentsHidden) {
+      this.fetchComments()
+      console.log(this.state.comments)
+      this.setState({ commentsHidden: false })
+    } else {this.setState({ commentsHidden: true })}
   }
-
 
   renderComments() {
     const style = this.state.commentsHidden ? {display: 'none'} : {};
