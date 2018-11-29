@@ -20,7 +20,7 @@ export class Feed extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://acebook-stars.herokuapp.com/posts")
+    fetch("http://localhost:3000/posts")
       .then(res => res.json())
       .then(
         (result) => {
