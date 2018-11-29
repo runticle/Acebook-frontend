@@ -1,4 +1,5 @@
 import React from 'react';
+import { setAuthenticationHeaders } from '../actions/auth';
 
 export class Register extends React.Component {
 
@@ -14,12 +15,13 @@ export class Register extends React.Component {
   }
 
   regReq() {
+    console.log('here')
     // fetch("https://acebook-stars.herokuapp.com/users", {
-    fetch("https://acebook-stars.herokuapp.com/users", {
+    fetch("http://localhost:3000/users", {
       method: 'post',
       headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
           name: this.state.name,
@@ -29,8 +31,7 @@ export class Register extends React.Component {
         })
     })
       .then(res => {
-        console.log('header')
-        console.log(res)
+        setAuthenticationHeaders(res.headers)
         return res.json()
       }).then(
         (result) => {
@@ -38,6 +39,7 @@ export class Register extends React.Component {
           console.log(result)
         },
         (error) => {
+          console.log(error)
           this.setState({
             error
           });
