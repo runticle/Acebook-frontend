@@ -19,12 +19,32 @@ div[name=post] {
 }
 
 .form_container {
+  margin-top: 4em;
   display: flex;
+}
+
+.form_container input, button {
+  margin: 10px;
+  border-radius: 6px;
+  border: none;
+  padding: 5px;
+}
+
+.form_container button {
+  color: grey;
+  border-radius: 10px;
 }
 
 #signup_link {
   display:none;
 }
+
+#signup_link a:hover, #register_link a:hover {
+  color: hotpink;
+  text-decoration: none
+}
+
+
 
 #authentication {
   text-align: center;
