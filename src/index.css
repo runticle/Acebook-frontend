@@ -44,15 +44,23 @@ textarea {
   width: 100%
 }
 
+#new_post_box {
+  width: 1000px;
+}
+
 .new_message {
-  width: 40%;
-  align-items: center;
+  width: 50%;
   margin: auto;
+}
+
+.new_message textarea {
+  background-color: white;
 }
 
 .new_message button {
   width: 50%;
   margin: auto;
+  margin-left: 25%
 }
 
 .new_comment button {
@@ -60,7 +68,7 @@ textarea {
   margin: auto;
 }
 
-.new_comment textarea {
+textarea {
   border-radius: 10px;
   padding-left: 0.4em;
   background-color: inherit;
