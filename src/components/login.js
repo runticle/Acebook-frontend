@@ -1,7 +1,7 @@
 import React from 'react';
 import Register from './register';
 
-class Login extends React.Component {
+export class Login extends React.Component {
 
   constructor(props) {
     super(props);
@@ -13,7 +13,7 @@ class Login extends React.Component {
   }
 
   logReq() {
-    fetch("http://localhost:3000/users/sign_in", {
+    fetch("https://acebook-stars.herokuapp.com/users/sign_in", {
       method: 'post',
       headers: {
       'Accept': 'application/json',

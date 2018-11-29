@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Comment correctly 1`] = `
+<div
+  id="post_id"
+  name="comment"
+>
+  <NewComment />
+  <div
+    id="name_time"
+  >
+    <h4
+      className="user_name"
+    >
+      Imo
+    </h4>
+    <p
+      id="time"
+    >
+      Time oclock
+    </p>
+  </div>
+  <div
+    id="message"
+  >
+    <p>
+      Imo comment
+    </p>
+  </div>
+  <Buttons />
+</div>
+`;

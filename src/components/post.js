@@ -6,7 +6,7 @@ import Feed from './feed';
 // import '../bootstrap/dist/css/bootstrap.css';
 
 
-class Post extends React.Component {
+export class Post extends React.Component {
 
   constructor(props) {
     super(props);

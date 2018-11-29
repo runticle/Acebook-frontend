@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Post correctly 1`] = `
+<div
+  className="border"
+  id="post_id"
+  name="post"
+>
+  <div
+    id="name_time"
+  >
+    <h4
+      className="user_name"
+    >
+      User number 
+      !
+    </h4>
+    <p
+      id="time"
+    >
+       
+      <Time
+        format="hh:mm YYYY/MM/DD"
+      />
+       
+    </p>
+  </div>
+  <div
+    id="message"
+  >
+    <p />
+  </div>
+  <Buttons />
+  <div
+    id="comments"
+  >
+    <div
+      name="comment"
+    >
+      <Comment />
+    </div>
+  </div>
+</div>
+`;

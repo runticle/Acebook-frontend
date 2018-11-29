@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Home correctly 1`] = `
+<div>
+  <Navigation />
+  <Welcome />
+  <div
+    id="authentication"
+  >
+    <div
+      className="form"
+      id="login_box"
+    >
+      <Login
+        loginHidden={false}
+      />
+      <p
+        className="form"
+        id="register_link"
+      >
+         New user? 
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+      </p>
+    </div>
+    <div
+      className="form"
+      id="register_box"
+    >
+      <Register
+        registerHidden={true}
+      />
+      <p
+        className="form"
+        id="signup_link"
+      >
+         Already signed up? 
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Log In
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;

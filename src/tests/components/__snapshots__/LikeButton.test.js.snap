@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render LikeButton correctly 1`] = `
+<div
+  id="likeButton"
+>
+  <button
+    className="button"
+    id="toggle_like"
+    onClick={[Function]}
+  >
+    ⭐️
+  </button>
+</div>
+`;
