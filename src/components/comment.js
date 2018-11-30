@@ -34,7 +34,7 @@ export class Comment extends React.Component {
     renderMessage() {
       return (
       <div id="message">
-        <p>Imo comment</p>
+        <p>{this.props.message}</p>
       </div>
     )
     }

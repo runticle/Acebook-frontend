@@ -8,36 +8,51 @@ import Welcome from './welcome';
 
 export class Feed extends React.Component {
 
-  handleForms = event => {
-    document.getElementById('login_form').style.display = 'none'
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCommentsOnPost: null
+    };
   }
 
-  render() {
-    document.body.style = "background-color: #e6e9ef;"
-        return (
-          <div id="posts_body">
-          < Navigation />
-          < Welcome />
-            <div id="new_post_box">
-              < NewPost />
-            </div>
-          <ul>
-            { this.props.posts.map((post, i) => (
-                  <li>
-                    < Post
-                      id = {post.id}
+ handleForms = event => {
+   document.getElementById('login_form').style.display = 'none'
+ }
+
+ handleCommentsShow = post_id => {
+   let postid = post_id === this.state.showCommentsOnPost ? null : post_id
+   this.setState({showCommentsOnPost: postid})
+ }
+
+ render() {
+   document.body.style = "background-color: #e6e9ef;"
+       return (
+         <div id="posts_body">
+         < Navigation />
+         < Welcome />
+           <div id="new_post_box">
+             < NewPost />
+           </div>
+         <ul>
+           { this.props.posts.map((post, i) => (
+                 <li>
+                   < Post
+                      handleCommentsShow = {this.handleCommentsShow}
+                      commentVisible={post.id === this.state.showCommentsOnPost}
                       key={i}
+                      id = {post.id}
                       message={post.message}
                       time={post.created_at}
                       user={post.user_id}
-                      // numberComments={post.numberComments}
-                    />
-                </li> ))}
-          </ul>
-          </div>
-        )
-      }
-    }
+                     // numberComments={post.numberComments}
+                   />
+                 </li>
+           ))}
+         </ul>
+         </div>
+       )
+     }
+   }
 
 const mapStateToProps = (state) => {
  return {

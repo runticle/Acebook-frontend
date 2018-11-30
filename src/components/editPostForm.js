@@ -1,23 +1,20 @@
 import React from 'react';
-import { getAuthenticationHeaders } from '../actions/auth';
 
-export class NewComment extends React.Component {
+export class EditPostForm extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      comment_message: ""
+      updated_message: ""
     };
   }
 
-  newCommentReq() {
-    fetch(`http://localhost:3000/posts/${this.props.post_id}/comments`, {
-      method: 'post',
-      headers: getAuthenticationHeaders(),
-      body: JSON.stringify({
-        message: this.state.post_message
-      })
+  editPostReq() {
+    fetch(`https://acebook-stars.herokuapp.com/posts/${this.props.post_id}`, {
+      method: 'patch',
+      message: this.state.updated_message,
+      // user_id: // USER ID FROM TOKEN!!!!! WOOO!
     })
       .then(res => res.json())
       .then(
@@ -37,7 +34,7 @@ export class NewComment extends React.Component {
   }
 
   validateForm() {
-    return this.state.comment_message.length > 0
+    return this.state.updated_message.length > 0
   }
 
   handleChange = event => {
@@ -48,19 +45,19 @@ export class NewComment extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.newCommentReq();
+    this.editPostReq();
   }
 
   render() {
     return (
       <div className="new_comment">
-        <form className="new_message_form" onSubmit={this.handleSubmit}>
-          <textarea className="comment_message" placeholder="What u thinkin" onChange={this.handleChange}/>
-          <button className="submit_comment" disabled={!this.validateForm()}>Submit</button>
+        <form className="edit_message_form" onSubmit={this.handleSubmit}>
+          <textarea className="updated_message" value={this.props.message} onChange={this.handleChange}/>
+          <button className="submit_message" disabled={!this.validateForm()}>Submit</button>
         </form>
       </div>
     )
   }
 }
 
-export default NewComment;
+export default EditPostForm;
