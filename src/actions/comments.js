@@ -1,15 +1,15 @@
 import config from '../config'
 import { getAuthenticationHeaders } from './auth'
 
-export const setComments = ( comments ) => ({
+export const setComments = ( {comments: comments} ) => ({
   type: 'SET_COMMENTS',
   comments
+
 })
 
 export const startSetComments = (id) => {
 
   return (dispatch) => {
-    console.log('here')
     return fetch(`${config.URL}/posts/${id}/comments`, {
       headers: getAuthenticationHeaders()
     })

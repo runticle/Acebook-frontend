@@ -25,11 +25,11 @@ export class Feed extends React.Component {
            { this.props.posts.map((post, i) => (
                  <li>
                    < Post
-                     id = {post.id}
-                     key={i}
-                     message={post.message}
-                     time={post.created_at}
-                     user={post.user_id}
+                      key={i}
+                      id = {post.id}
+                      message={post.message}
+                      time={post.created_at}
+                      user={post.user_id}
                      // numberComments={post.numberComments}
                    />
                  </li>

@@ -2,11 +2,11 @@ import React from 'react';
 import Time from 'react-time-format';
 import AllPostButtons from './post_buttons/allPostButtons';
 import Comment from './comment';
-import Feed from './feed';
-import ReactDOM from 'react-dom'
+
+
 import NewComment from './newComment'
 import { connect } from 'react-redux';
-import configureStore from '../store/configureStore';
+
 import {startSetComments} from '../actions/comments'
 // import '../bootstrap/dist/css/bootstrap.css';
 
@@ -52,7 +52,8 @@ export class Post extends React.Component {
       <div id="comments" style= { style }>
         { this.props.comments.map((comment, i) => (
         <li>
-          < Comment />
+          < Comment
+          message = { comment.comment }/>
         </li>
       ))}
         <div id="render_new_comment">{ this.renderNewComment() }</div>
@@ -61,7 +62,6 @@ export class Post extends React.Component {
   }
 
   renderNewComment() {
-    const style = this.props.newCommentHidden ? {display: 'none'} : {};
     return (
       < NewComment
         post_id ={ this.props.post_id }
