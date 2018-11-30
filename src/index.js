@@ -3,10 +3,14 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import './index.css';
-import App from './App';
-import Home from './components/home';
-import Feed from './components/feed';
+// import App from './App';
+
 import './bootstrap/dist/css/bootstrap.css'
+import actionCable from 'actioncable'
+
+Const CableApp = {}
+
+CableApp.cable = actionCable.createConsumer(`ws://${window.location.hostname}:3000/cable`)
 
 render (
   <Router>
