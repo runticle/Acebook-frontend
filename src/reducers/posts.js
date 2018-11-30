@@ -3,6 +3,7 @@ const pricesReducerDefualtState = [];
 export default (state = pricesReducerDefualtState, action) => {
   switch (action.type) {
     case 'ADD_POST':
+      console.log('here', action.post)
       return [
         action.post,
         ...state
