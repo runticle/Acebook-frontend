@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../config'
 
 
 export class Navigation extends React.Component {
@@ -14,7 +15,7 @@ export class Navigation extends React.Component {
   }
 
   logoutReq() {
-    fetch("https://acebook-stars.herokuapp.com/users/sign_out", {
+    fetch(`${config.URL}/users/sign_out`, {
       method: 'delete',
       // user_id: // USER ID FROM TOKEN!!!!! WOOO!
     })

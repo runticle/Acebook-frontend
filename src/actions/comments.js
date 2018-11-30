@@ -8,7 +8,7 @@ export const addComment = (comment) => ({
 
 export const startAddComment = ({post_id, comment} = {}) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/posts/${post_id}/comments`, {
+    return fetch(`${config.URL}/posts/${post_id}/comments`, {
       method: 'post',
       headers: getAuthenticationHeaders(),
       body: JSON.stringify({comment: comment})

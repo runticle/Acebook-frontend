@@ -2,6 +2,7 @@ import React from 'react';
 import Register from './register';
 import { setAuthenticationHeaders } from '../actions/auth'
 import {withRouter} from 'react-router-dom'
+import config from '../config'
 
 export class Login extends React.Component {
 
@@ -15,7 +16,7 @@ export class Login extends React.Component {
   }
 
   logReq() {
-    fetch("http://localhost:3000/users/sign_in", {
+    fetch(`${config.URL}/users/sign_in`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',

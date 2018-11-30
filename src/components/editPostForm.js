@@ -1,5 +1,7 @@
 import React from 'react';
 import { getAuthenticationHeaders } from '../actions/auth';
+import config from '../config'
+
 export class EditPostForm extends React.Component {
 
   constructor(props) {
@@ -11,7 +13,7 @@ export class EditPostForm extends React.Component {
   }
 
   editPostReq() {
-    fetch(`${URL}/posts/${this.props.post_id}`, {
+    fetch(`${config.URL}/posts/${this.props.post_id}`, {
       method: 'patch',
       headers: getAuthenticationHeaders(),
       body: JSON.stringify({

@@ -1,9 +1,10 @@
 import React from 'react';
+import config from '../../config'
 
 export class NewCommentButton extends React.Component {
 
   newCommentPostReq() {
-    fetch("https://acebook-stars.herokuapp.com/posts/post_id/comments", {
+    fetch(`${config.URL}/posts/post_id/comments`, {
       method: 'post',
       comment: 'TO_BE_FILLED_IN_WHEN_API_SET_UP',
       id: this.props.post_id

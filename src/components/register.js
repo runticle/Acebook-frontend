@@ -1,6 +1,7 @@
 import React from 'react';
 import { setAuthenticationHeaders } from '../actions/auth';
 import {withRouter} from 'react-router-dom'
+import config from '../config'
 
 
 export class Register extends React.Component {
@@ -17,9 +18,7 @@ export class Register extends React.Component {
   }
 
   regReq() {
-
-    // fetch("https://acebook-stars.herokuapp.com/users", {
-    fetch("http://localhost:3000/users", {
+    fetch(`${config.URL}/users`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
