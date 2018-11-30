@@ -4,7 +4,7 @@ import AllPostButtons from './post_buttons/allPostButtons';
 import Comment from './comment';
 import NewComment from './newComment'
 import { connect } from 'react-redux';
-import {startSetComments} from '../actions/comments'
+import {startSetComments, startAddComment} from '../actions/comments'
 import EditPostForm from './editPostForm'
 
 
@@ -20,6 +20,7 @@ export class Post extends React.Component {
   }
 
   render() {
+    console.log("rendering...")
     return (
       <div className="border" name="post" id="post_id">
         <div id="name_time">
@@ -38,8 +39,12 @@ export class Post extends React.Component {
     )
   }
 
-  handleNewComment = event => {
-    event.preventDefault();
+  handleNewComment = (comment) => {
+    console.log(comment)
+    this.props.startAddComment( comment ).then(res => {
+      console.log('res', res)
+      this.props.startSetComments(this.props.id)
+    })
   }
 
   handleComments = event => {
@@ -68,7 +73,8 @@ export class Post extends React.Component {
   renderNewComment() {
     return (
       < NewComment
-        post_id ={ this.props.post_id }
+        handleNewComment = { this.handleNewComment }
+        post_id ={ this.props.id }
       />
     )
   }
@@ -81,7 +87,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
- startSetComments: (id) => dispatch(startSetComments(id))
+  startAddComment: ({post_id, comment}) => dispatch(startAddComment({post_id, comment})),
+  startSetComments: (id) => dispatch(startSetComments(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
