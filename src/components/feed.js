@@ -8,8 +8,20 @@ import Welcome from './welcome';
 
 export class Feed extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCommentsOnPost: null
+    };
+  }
+
  handleForms = event => {
    document.getElementById('login_form').style.display = 'none'
+ }
+
+ handleCommentsShow = post_id => {
+   let postid = post_id === this.state.showCommentsOnPost ? null : post_id
+   this.setState({showCommentsOnPost: postid})
  }
 
  render() {
@@ -25,6 +37,8 @@ export class Feed extends React.Component {
            { this.props.posts.map((post, i) => (
                  <li>
                    < Post
+                      handleCommentsShow = {this.handleCommentsShow}
+                      commentVisible={post.id === this.state.showCommentsOnPost}
                       key={i}
                       id = {post.id}
                       message={post.message}

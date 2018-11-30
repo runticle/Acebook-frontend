@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAuthenticationHeaders } from '../actions/auth';
 
 export class NewComment extends React.Component {
 
@@ -11,11 +12,12 @@ export class NewComment extends React.Component {
   }
 
   newCommentReq() {
-    fetch("https://acebook-stars.herokuapp.com/posts", {
+    fetch(`http://localhost:3000/posts/${this.props.post_id}/comments`, {
       method: 'post',
-      message: this.state.comment_message,
-      post_id: this.props.post_id
-      // user_id: // USER ID FROM TOKEN!!!!! WOOO!
+      headers: getAuthenticationHeaders(),
+      body: JSON.stringify({
+        message: this.state.post_message
+      })
     })
       .then(res => res.json())
       .then(

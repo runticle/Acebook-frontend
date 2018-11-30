@@ -36,18 +36,17 @@ export class Post extends React.Component {
 
   handleNewComment = event => {
     event.preventDefault();
-    this.state.newCommentHidden ? this.setState({ newCommentHidden: false }) : this.setState({ newCommentHidden: true })
   }
 
   handleComments = event => {
     event.preventDefault();
+    this.props.handleCommentsShow(this.props.id)
     this.props.startSetComments(this.props.id)
-    this.state.commentsHidden ? this.setState({ commentsHidden: false }) : this.setState({ commentsHidden: true })
   }
 
 
   renderComments() {
-    const style = this.state.commentsHidden ? {display: 'none'} : {};
+    const style = this.props.commentVisible ? {} : {display: 'none'};
     return (
       <div id="comments" style= { style }>
         { this.props.comments.map((comment, i) => (
