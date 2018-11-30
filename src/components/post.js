@@ -13,15 +13,35 @@ export class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editFormHidden: true,
+
+      commentsHidden: true,
+      editPostFormHidden: true,
+
       isLoaded: false,
       comments: []
     };
+    this.handler = this.handler.bind(this)
+  }
+
+  handler(event) {
+    event.preventDefault();
+    if (this.state.editPostFormHidden) {
+      this.setState({
+        editPostFormHidden: false })
+      } else {
+      this.setState({
+        editPostFormHidden: true })
+      }
   }
 
   render() {
     return (
       <div className="border" name="post" id="post_id">
+
+        < EditPostForm
+          post_id = { this.props.id }
+          message = { this.props.message }
+          editPostFormHidden = {this.state.editPostFormHidden} />
         <div id="name_time">
           <h4 className="user_name">User #{ this.props.user }!</h4>
           <p id="time"> <Time value={ this.props.time } format="hh:mm YYYY/MM/DD" /> </p>
@@ -31,6 +51,7 @@ export class Post extends React.Component {
         </div>
         < AllPostButtons
           post_id = { this.props.id }
+          handler = { this.handler }
         />
       <a id="see_comments" href='/posts' onClick={this.handleComments}>{this.props.numberComments} Comments</a>
         <div id="render_comments">{ this.renderComments() }</div>
