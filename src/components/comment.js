@@ -1,6 +1,8 @@
 import React from 'react';
 import AllCommentButtons from './comment_button/allCommentButtons';
 import NewComment from './newComment'
+import Time from 'react-time-format';
+
 
 export class Comment extends React.Component {
 
@@ -26,8 +28,8 @@ export class Comment extends React.Component {
     renderNameTime() {
       return (
       <div id="name_time">
-        <h4 className="user_name">Imo</h4>
-        <p id="time">Time oclock</p>
+        <h4 className="user_name">User #{this.props.user}</h4>
+        <p id="time"> <Time value={ this.props.time } format="hh:mm YYYY/MM/DD" /> </p>
       </div>
     )
     }

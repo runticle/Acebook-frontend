@@ -81,6 +81,8 @@ export class Post extends React.Component {
         { this.props.comments.map((comment, i) => (
         <li>
           < Comment
+          time={comment.created_at}
+          user={comment.user_id}
           id={ comment.id }
           post_id = { this.props.id }
           message = { comment.comment }/>
