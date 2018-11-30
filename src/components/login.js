@@ -1,7 +1,7 @@
 import React from 'react';
 import Register from './register';
 import { setAuthenticationHeaders } from '../actions/auth'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 export class Login extends React.Component {
 
@@ -30,11 +30,9 @@ export class Login extends React.Component {
         setAuthenticationHeaders(res.headers)
         return res.json()
       })
-      .then(
-        (result) => {
+      .then((result) => {
           console.log(result)
-        },
-        (error) => {
+        },(error) => {
           console.log(error)
           this.setState({
             error
@@ -69,10 +67,8 @@ export class Login extends React.Component {
           <button id="submit_login" disabled={!this.validateForm()}>Submit</button>
         </form>
       </div>
-
     )
   }
-
 }
 
 export default withRouter(Login);

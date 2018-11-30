@@ -3,23 +3,18 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import { startSetPosts } from './actions/posts'
-import { AppRouter } from '../routers/AppRouter'
+import AppRouter from './routers/AppRouter'
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 // import App from './App';
 
 import './bootstrap/dist/css/bootstrap.css'
-import actionCable from 'actioncable'
-
-Const CableApp = {}
-
-CableApp.cable = actionCable.createConsumer(`ws://${window.location.hostname}:3000/cable`)
 
 const store = configureStore();
 
 const jsx = (
   <Provider store={store}>
-    <App cableApp={CableApp} />
+    <AppRouter />
   </Provider>
 )
 
