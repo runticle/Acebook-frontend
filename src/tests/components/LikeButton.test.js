@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { LikeButton } from '../../components/LikeButton'
+import { LikeButton } from '../../components/comment_button/likeButton'
 
 let wrapper = shallow(<LikeButton />)
 

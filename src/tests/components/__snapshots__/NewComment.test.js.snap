@@ -2,7 +2,7 @@
 
 exports[`should render NewComment correctly 1`] = `
 <div
-  className="new_message"
+  className="new_comment"
 >
   <form
     className="new_message_form"
