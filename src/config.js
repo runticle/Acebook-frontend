@@ -3,7 +3,7 @@ const dev = {
 }
 
 const prod = {
-  URL: "https//acebook-stars.herokuapp.com"
+  URL: "https://acebook-stars.herokuapp.com"
 }
 
 const config = process.env.REACT_APP_STAGE === "production" ? prod : dev

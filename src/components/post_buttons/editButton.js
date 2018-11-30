@@ -1,10 +1,11 @@
 import React from 'react';
+import config from '../../config'
 
 
 class EditButton extends React.Component {
 
   editPostReq() {
-    fetch(`http://localhost:3000/posts/${this.props.post_id}`, {
+    fetch(`${config.URL}/posts/${this.props.post_id}`, {
       method: 'patch',
       id: this.props.post_id
     })
