@@ -49,8 +49,8 @@ class LikeButton extends React.Component {
     const style = {display: 'none'}
     return (
       <div id="likeButton">
-        <button id="toggle_like_true" style = {style} onClick={ this.handleLikeTrue } className="button">🌟</button>
-        <button id="toggle_like_false" onClick={ this.handleLikeFalse } className="button">⭐️</button>
+        <button id="toggle_like_true" style = {style} onClick={ this.handleLikeTrue } className="button">❤️</button>
+        <button id="toggle_like_false" onClick={ this.handleLikeFalse } className="button">🖤</button>
       </div>
           )
     }
