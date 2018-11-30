@@ -2,6 +2,14 @@ import React from 'react';
 
 
 class LikeButton extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      likedButtonHidden: true,
+      unlikedButtonHidden: false
+    };
+  }
   //
   // likePostReq() {
   //   fetch("https://acebook-stars.herokuapp.com/posts", {
@@ -25,16 +33,24 @@ class LikeButton extends React.Component {
   //     )
   // }
 
-  handleLike = event => {
+  handleLikeTrue = event => {
     event.preventDefault();
-    console.log(this.props.post_id)
+      document.getElementById('toggle_like_true').style.display = 'none'
+      document.getElementById('toggle_like_false').style.display = 'block'
+  }
+
+  handleLikeFalse = event => {
+    event.preventDefault();
+      document.getElementById('toggle_like_true').style.display = 'block'
+      document.getElementById('toggle_like_false').style.display = 'none'
   }
 
   render() {
-
+    const style = {display: 'none'}
     return (
       <div id="likeButton">
-        <button id="toggle_like" onClick={ this.handleLike } className="button">⭐️</button>
+        <button id="toggle_like_true" style = {style} onClick={ this.handleLikeTrue } className="button">❤️</button>
+        <button id="toggle_like_false" onClick={ this.handleLikeFalse } className="button">🖤</button>
       </div>
           )
     }
