@@ -1,37 +1,38 @@
 import React from 'react';
+import config from '../../config'
+import { getAuthenticationHeaders } from '../../actions/auth'
 
 
 export class DeleteButton extends React.Component {
 
-  // deletePostReq() {
-  //   // ROUTING IS EXPERIMENTAL ONLY, NOT TESTED, DO NOT TRUST
-  //   var route = "posts/$"
-  //   var id = this.props.post_id
-  //   fetch(`https://acebook-stars.herokuapp.com/${route}/${id}`, {
-  //     method: 'delete',
-  //     id: this.props.post_id
-  //   })
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         console.log(result)
-  //       },
-  //       // Note: it's important to handle errors here
-  //       // instead of a catch() block so that we don't swallow
-  //       // exceptions from actual bugs in components.
-  //       (error) => {
-  //         console.log(error)
-  //         this.setState({
-  //           error
-  //         });
-  //       }
-  //     )
-  // }
+  deletePostReq() {
+    var id = this.props.id
+    var post_id = this.props.post_id
+    console.log(`${config.URL}/posts/${post_id}/comments/${id}`)
+    fetch(`${config.URL}/posts/${post_id}/comments/${id}`, {
+      method: 'delete',
+      headers: getAuthenticationHeaders()
+    })
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          console.log(error)
+          this.setState({
+            error
+          });
+        }
+      )
+  }
 
   handleDelete = event => {
     event.preventDefault();
-    console.log(this.props.post_id)
-    // this.deletePostReq();
+    this.deletePostReq();
   }
 
   render() {

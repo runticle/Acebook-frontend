@@ -11,7 +11,7 @@ class AllCommentButtons extends React.Component {
     return (
               // ADD IN COMMENT ID WHEN INFO IS AVAILABLE FROM FETCH REQUEST
               <div id="buttons">
-                < DeleteButton post_id ={ this.props.post_id } />
+                < DeleteButton post_id ={ this.props.post_id } id = {this.props.id} />
                 < EditButton post_id ={ this.props.post_id } />
                 < NewCommentButton post_id ={ this.props.post_id } />
                 < LikeButton post_id ={ this.props.post_id } />
