@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Buttons } from '../../components/Buttons'
+import { AllCommentButtons } from '../../components/comment_button/allCommentButtons'
 
-let wrapper = shallow(<Buttons />)
+let wrapper = shallow(<AllCommentButtons />)
 
 test('should render Buttons correctly', () => {
   expect(wrapper).toMatchSnapshot();
