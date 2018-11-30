@@ -7,7 +7,7 @@ exports[`should render Welcome correctly 1`] = `
   <h1
     align="center"
   >
-    Welcome to Acebook, Imo!
+    Welcome to Acebook!
   </h1>
 </div>
 `;

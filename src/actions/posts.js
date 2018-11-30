@@ -8,18 +8,26 @@ export const addPost = (post) => ({
 
 export const startAddPost = (post = {}) => {
   return (dispatch) => {
-    return fetch(`${URL}/posts`, {
+    return fetch(`${config.URL}/posts`, {
       method: 'post',
       headers: getAuthenticationHeaders(),
-      body: JSON.stringify({post})
-    }).then(res => res.json())
-      .then(resPost => {
-          dispatch(addPost({ resPost }))
-          return resPost
-        }, error => console.log(error)
-      )
-    }
+      body: JSON.stringify({message: post})
+    }).then(res => {
+      if (res.status === 200) {
+        return res.json()
+      } else {
+        throw res
+      }
+    }).then(resPost => {
+        console.log(resPost)
+        dispatch(addPost(resPost))
+        return resPost
+      }, error => {
+        return error.status
+      }
+    )
   }
+}
 
 export const setPosts = ({ posts }) => ({
   type: 'SET_POSTS',

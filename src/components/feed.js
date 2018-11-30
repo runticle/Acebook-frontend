@@ -8,8 +8,24 @@ import Welcome from './welcome';
 
 export class Feed extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCommentsOnPost: null
+    };
+  }
+
  handleForms = event => {
    document.getElementById('login_form').style.display = 'none'
+ }
+
+ handleCommentsShow = post_id => {
+   let postid = post_id === this.state.showCommentsOnPost ? null : post_id
+   this.setState({showCommentsOnPost: postid})
+ }
+
+ handleLoginRedirect = () => {
+   this.props.history.push('/')
  }
 
  render() {
@@ -19,22 +35,26 @@ export class Feed extends React.Component {
          < Navigation />
          < Welcome />
            <div id="new_post_box">
-             < NewPost />
+             < NewPost
+             handleLoginRedirect={this.handleLoginRedirect}
+             />
            </div>
-         <ul>
-           { this.props.posts.map((post, i) => (
-                 <li>
-                   < Post
-                     id = {post.id}
-                     key={i}
-                     message={post.message}
-                     time={post.created_at}
-                     user={post.user_id}
-                     // numberComments={post.numberComments}
-                   />
-                 </li>
-           ))}
-         </ul>
+           <ul>
+             { this.props.posts.map((post, i) => (
+                   <li>
+                     < Post
+                        handleCommentsShow = {this.handleCommentsShow}
+                        commentsVisible={post.id === this.state.showCommentsOnPost}
+                        key={i}
+                        id = {post.id}
+                        message={post.message}
+                        time={post.created_at}
+                        user={post.user_id}
+                       // numberComments={post.numberComments}
+                     />
+                   </li>
+             ))}
+           </ul>
          </div>
        )
      }

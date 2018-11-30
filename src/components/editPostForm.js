@@ -59,7 +59,9 @@ export class EditPostForm extends React.Component {
   }
 
   render() {
+
     const style = this.props.editPostFormHidden ? {display: 'none'} : {};
+
     return (
       <div className="new_comment" style = {style}>
         <form className="edit_message_form" onSubmit={this.handleSubmit}>

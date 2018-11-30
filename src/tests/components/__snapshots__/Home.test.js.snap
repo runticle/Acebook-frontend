@@ -11,7 +11,7 @@ exports[`should render Home correctly 1`] = `
       className="form"
       id="login_box"
     >
-      <Login
+      <withRouter(Login)
         loginHidden={false}
       />
       <p
@@ -31,7 +31,7 @@ exports[`should render Home correctly 1`] = `
       className="form"
       id="register_box"
     >
-      <Register
+      <withRouter(Register)
         registerHidden={true}
       />
       <p

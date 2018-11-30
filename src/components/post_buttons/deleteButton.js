@@ -1,25 +1,20 @@
 import React from 'react';
 import { getAuthenticationHeaders } from '../../actions/auth'
+import config from '../../config'
 
 
 class DeleteButton extends React.Component {
 
   deletePostReq() {
-
-    // METHOD TO BE TESTED
-    fetch(`http://localhost:3000/posts/${this.props.post_id}`, {
+    fetch(`${config.URL}/posts/${this.props.post_id}`, {
       method: 'delete',
-      id: this.props.post_id
-
+      headers: getAuthenticationHeaders()
     })
       .then(res => res.json())
       .then(
         (result) => {
           console.log(result)
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           console.log(error)
           this.setState({

@@ -17,6 +17,7 @@ export class Comment extends React.Component {
         { this.renderMessage() }
         < AllCommentButtons
           post_id={ this.props.post_id }
+          id={this.props.id}
         />
       </div>
       )
@@ -34,7 +35,7 @@ export class Comment extends React.Component {
     renderMessage() {
       return (
       <div id="message">
-        <p>Imo comment</p>
+        <p>{this.props.message}</p>
       </div>
     )
     }
