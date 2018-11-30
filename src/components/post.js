@@ -52,11 +52,13 @@ export class Post extends React.Component {
   render() {
     return (
       <div className="border" name="post" id="post_id">
-        { this.renderNameTime(this.props.time, this.props.user) }
-        { this.renderMessage(this.props.message) }
-        < EditPostForm
-          post_id = { this.props.id }
-          message = { this.props.message }/>
+        <div id="name_time">
+          <h4 className="user_name">User #{ this.props.user }!</h4>
+          <p id="time"> <Time value={ this.props.time } format="hh:mm YYYY/MM/DD" /> </p>
+        </div>
+        <div id="message">
+          <p>{ this.props.message }</p>
+        </div>
         < AllPostButtons
           post_id = { this.props.id }
         />
@@ -97,23 +99,6 @@ export class Post extends React.Component {
         post_id ={ this.props.post_id }
       />
     )
-  }
-
-  renderNameTime(time, user) {
-    return (
-    <div id="name_time">
-      <h4 className="user_name">User #{ user }!</h4>
-      <p id="time"> <Time value={ time } format="hh:mm YYYY/MM/DD" /> </p>
-    </div>
-    )
-  }
-
-  renderMessage(message) {
-    return (
-    <div id="message">
-      <p>{ message }</p>
-    </div>
-  )
   }
 }
 
