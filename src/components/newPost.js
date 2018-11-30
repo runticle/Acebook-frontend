@@ -6,7 +6,10 @@ export class NewPost extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.startAddPost(event.target.post_message.value)
+    this.props.startAddPost(event.target.post_message.value).then(res => {
+      console.log('res', res)
+      if (res === 401) this.props.handleLoginRedirect()
+    })
     event.target.post_message.value = ""
   }
 

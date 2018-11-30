@@ -13,13 +13,18 @@ export const startAddPost = (post = {}) => {
       headers: getAuthenticationHeaders(),
       body: JSON.stringify({message: post})
     }).then(res => {
-      if (res.status !== 200) { throw Error(res.status)}
-      return res.json()
+      if (res.status === 200) {
+        return res.json()
+      } else {
+        throw res
+      }
     }).then(resPost => {
         console.log(resPost)
         dispatch(addPost(resPost))
         return resPost
-      }, error => console.log(error)
+      }, error => {
+        return error.status
+      }
     )
   }
 }
