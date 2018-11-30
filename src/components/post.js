@@ -2,10 +2,16 @@ import React from 'react';
 import Time from 'react-time-format';
 import AllPostButtons from './post_buttons/allPostButtons';
 import Comment from './comment';
-import Feed from './feed';
-import ReactDOM from 'react-dom'
+
+
 import NewComment from './newComment'
+
+import { connect } from 'react-redux';
+
+import {startSetComments} from '../actions/comments'
+
 import EditPostForm from './editPostForm'
+
 // import '../bootstrap/dist/css/bootstrap.css';
 
 
@@ -62,35 +68,30 @@ export class Post extends React.Component {
 
   handleNewComment = event => {
     event.preventDefault();
-    this.state.newCommentHidden ? this.setState({ newCommentHidden: false }) : this.setState({ newCommentHidden: true })
   }
 
   handleComments = event => {
     event.preventDefault();
-    if (this.state.commentsHidden) {
-      this.fetchComments()
-      console.log(this.state.comments)
-      this.setState({ commentsHidden: false })
-    } else {this.setState({ commentsHidden: true })}
+    this.props.handleCommentsShow(this.props.id)
+    this.props.startSetComments(this.props.id)
   }
 
   renderComments() {
-    const style = this.state.commentsHidden ? {display: 'none'} : {};
+    const style = this.props.commentVisible ? {} : {display: 'none'};
     return (
-      // loops through comments and render
-      <div id="comments" style={ style }>
-        <div name="comment">
+      <div id="comments" style= { style }>
+        { this.props.comments.map((comment, i) => (
+        <li>
           < Comment
-            post_id = { this.props.id }
-          />
-        </div>
+          message = { comment.comment }/>
+        </li>
+      ))}
         <div id="render_new_comment">{ this.renderNewComment() }</div>
       </div>
     )
   }
 
   renderNewComment() {
-    const style = this.props.newCommentHidden ? {display: 'none'} : {};
     return (
       < NewComment
         post_id ={ this.props.post_id }
@@ -116,4 +117,14 @@ export class Post extends React.Component {
   }
 }
 
-export default Post;
+const mapStateToProps = (state) => {
+ return {
+   comments: state.comments
+ }
+};
+
+const mapDispatchToProps = (dispatch) => ({
+ startSetComments: (id) => dispatch(startSetComments(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
