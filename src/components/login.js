@@ -1,7 +1,7 @@
 import React from 'react';
 import Register from './register';
 import { setAuthenticationHeaders } from '../actions/auth'
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 export class Login extends React.Component {
 
