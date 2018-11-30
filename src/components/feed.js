@@ -24,6 +24,10 @@ export class Feed extends React.Component {
    this.setState({showCommentsOnPost: postid})
  }
 
+ handleLoginRedirect = () => {
+   this.props.history.push('/')
+ }
+
  render() {
    document.body.style = "background-color: #e6e9ef;"
        return (
@@ -31,7 +35,9 @@ export class Feed extends React.Component {
          < Navigation />
          < Welcome />
            <div id="new_post_box">
-             < NewPost />
+             < NewPost
+             handleLoginRedirect={this.handleLoginRedirect}
+             />
            </div>
            <ul>
              { this.props.posts.map((post, i) => (
