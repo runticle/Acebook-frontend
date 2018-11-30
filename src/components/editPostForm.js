@@ -7,7 +7,6 @@ export class EditPostForm extends React.Component {
 
     this.state = {
       updated_message: this.props.message,
-      blah: this.props.message
     };
   }
 
@@ -55,12 +54,14 @@ export class EditPostForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    console.log("test")
     this.editPostReq();
   }
 
   render() {
+    const style = this.props.editPostFormHidden ? {display: 'none'} : {};
     return (
-      <div className="new_comment">
+      <div className="new_comment" style = {style}>
         <form className="edit_message_form" onSubmit={this.handleSubmit}>
           <textarea id="update_message_text" className="updated_message" onChange={this.handleChange} type="textarea" value={this.state.updated_message}>  </textarea>
           <button className="submit_message" disabled={!this.validateForm()}>Submit</button>

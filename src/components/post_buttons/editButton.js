@@ -25,17 +25,17 @@ class EditButton extends React.Component {
       )
   }
 
-  handleEdit = event => {
-    event.preventDefault();
-    console.log(this.props.post_id)
-    
-  }
+  // handleEdit = event => {
+  //   event.preventDefault();
+  //   console.log(this.props.post_id)
+  //
+  // }
 
   render() {
 
     return (
       <div id="editButton">
-        <button id="edit" onClick={ this.handleEdit } className="button">✏️</button>
+        <button id="edit" onClick={ this.props.handler } className="button">✏️</button>
       </div>
           )
     }

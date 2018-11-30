@@ -15,10 +15,22 @@ export class Post extends React.Component {
     super(props);
     this.state = {
       commentsHidden: true,
-      editFormHidden: true,
+      editPostFormHidden: true,
       isLoaded: false,
       comments: []
     };
+    this.handler = this.handler.bind(this)
+  }
+
+  handler(event) {
+    event.preventDefault();
+    if (this.state.editPostFormHidden) {
+      this.setState({
+        editPostFormHidden: false })
+      } else {
+      this.setState({
+        editPostFormHidden: true })
+      }
   }
 
     fetchComments() {
@@ -50,9 +62,11 @@ export class Post extends React.Component {
         { this.renderMessage(this.props.message) }
         < EditPostForm
           post_id = { this.props.id }
-          message = { this.props.message } />
+          message = { this.props.message }
+          editPostFormHidden = {this.state.editPostFormHidden} />
         < AllPostButtons
           post_id = { this.props.id }
+          handler = { this.handler }
         />
         <a id="see_comments" href='/posts' onClick={this.handleComments}>{this.props.numberComments} Comments</a>
         <div id="render_comments">{ this.renderComments() }</div>
