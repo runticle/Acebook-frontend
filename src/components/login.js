@@ -1,6 +1,7 @@
 import React from 'react';
 import Register from './register';
 import { setAuthenticationHeaders } from '../actions/auth'
+import {withRouter} from 'react-router-dom'
 
 export class Login extends React.Component {
 
@@ -17,8 +18,8 @@ export class Login extends React.Component {
     fetch("http://localhost:3000/users/sign_in", {
       method: 'post',
       headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
           email: this.state.log_email,
@@ -54,8 +55,8 @@ export class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // the api url may need changing!!!!
     this.logReq();
+    this.props.history.push('/posts')
   }
 
   render () {
@@ -74,4 +75,4 @@ export class Login extends React.Component {
 
 }
 
-export default Login;
+export default withRouter(Login);
