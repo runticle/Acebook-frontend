@@ -1,6 +1,6 @@
 const pricesReducerDefualtState = [];
 
-export default (state = pricesReducerDefualtState, action) => {
+export default (state = pricesReducerDefualtState, action = null) => {
   switch (action.type) {
     case 'ADD_POST':
       console.log('here', action.post)
