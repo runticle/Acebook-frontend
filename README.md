@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Acebook !!!
+
+See https://github.com/toddpla/acebook-stars/ for more infomation about this project.
 
 ## Available Scripts
 
