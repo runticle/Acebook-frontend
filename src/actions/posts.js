@@ -16,13 +16,15 @@ export const startAddPost = (post = {}) => {
       if (res.status === 200) {
         return res.json()
       } else {
-        throw Error(res.status)
+        throw res
       }
     }).then(resPost => {
         console.log(resPost)
         dispatch(addPost(resPost))
         return resPost
-      }, error => error
+      }, error => {
+        return error.status
+      }
     )
   }
 }

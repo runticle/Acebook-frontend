@@ -7,6 +7,7 @@ exports[`should render Register correctly 1`] = `
   style={Object {}}
 >
   <form
+    action="/posts"
     className="form"
     onSubmit={[Function]}
   >
