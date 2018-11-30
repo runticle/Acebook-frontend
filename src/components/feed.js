@@ -33,22 +33,22 @@ export class Feed extends React.Component {
            <div id="new_post_box">
              < NewPost />
            </div>
-         <ul>
-           { this.props.posts.map((post, i) => (
-                 <li>
-                   < Post
-                      handleCommentsShow = {this.handleCommentsShow}
-                      commentVisible={post.id === this.state.showCommentsOnPost}
-                      key={i}
-                      id = {post.id}
-                      message={post.message}
-                      time={post.created_at}
-                      user={post.user_id}
-                     // numberComments={post.numberComments}
-                   />
-                 </li>
-           ))}
-         </ul>
+           <ul>
+             { this.props.posts.map((post, i) => (
+                   <li>
+                     < Post
+                        handleCommentsShow = {this.handleCommentsShow}
+                        commentsVisible={post.id === this.state.showCommentsOnPost}
+                        key={i}
+                        id = {post.id}
+                        message={post.message}
+                        time={post.created_at}
+                        user={post.user_id}
+                       // numberComments={post.numberComments}
+                     />
+                   </li>
+             ))}
+           </ul>
          </div>
        )
      }

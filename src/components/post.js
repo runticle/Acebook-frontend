@@ -2,17 +2,10 @@ import React from 'react';
 import Time from 'react-time-format';
 import AllPostButtons from './post_buttons/allPostButtons';
 import Comment from './comment';
-
-
 import NewComment from './newComment'
-
 import { connect } from 'react-redux';
-
 import {startSetComments} from '../actions/comments'
-
 import EditPostForm from './editPostForm'
-
-// import '../bootstrap/dist/css/bootstrap.css';
 
 
 export class Post extends React.Component {
@@ -20,34 +13,11 @@ export class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentsHidden: true,
       editFormHidden: true,
       isLoaded: false,
       comments: []
     };
   }
-
-    fetchComments() {
-      fetch(`http://localhost:3000/posts/${this.props.id}/comments`)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              comments: result
-            });console.log(result)
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
-    }
 
   render() {
     return (
@@ -62,7 +32,7 @@ export class Post extends React.Component {
         < AllPostButtons
           post_id = { this.props.id }
         />
-        <a id="see_comments" href='/posts' onClick={this.handleComments}>{this.props.numberComments} Comments</a>
+      <a id="see_comments" href='/posts' onClick={this.handleComments}>{this.props.numberComments} Comments</a>
         <div id="render_comments">{ this.renderComments() }</div>
       </div>
     )
@@ -79,7 +49,7 @@ export class Post extends React.Component {
   }
 
   renderComments() {
-    const style = this.props.commentVisible ? {} : {display: 'none'};
+    const style = this.props.commentsVisible ? {} : {display: 'none'};
     return (
       <div id="comments" style= { style }>
         { this.props.comments.map((comment, i) => (
